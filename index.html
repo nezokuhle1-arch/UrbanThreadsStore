@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Urban Threads Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            <img src="images/logo.png" alt="Urban Threads Store">
+        </div>
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="shop.html?category=Hoodies">Hoodies</a>
+            <a href="shop.html?category=T-Shirts">T-shirts</a>
+            <a href="shop.html?category=Sneakers">Sneakers</a>
+            <a href="shop.html?category=Accessories">Accessories</a>
+        </div>
+
+        <!-- Search Bar -->
+       
+        <form class="search-bar" method="get" action="shop.html">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit" aria-label="Search">
+                <span class="material-symbols-rounded">search</span>
+            </button>
+        </form>
+       
+        <!-- User Authentication -->
+        <div class="nav-icons">
+            <span id="nav-auth-status">
+                <a href="login.html" aria-label="Account">
+                    <span class="material-symbols-rounded">person</span>
+                </a>
+            </span>
+            <a href="cart.html" aria-label="Cart">
+                <span class="material-symbols-rounded">shopping_cart</span>
+                <span id="nav-cart-count" class="cart-count" style="display: none;">0</span>
+            </a>
+            <a href="wishlist.html" aria-label="Wishlist">
+                <span class="material-symbols-rounded">favorite</span>
+            </a>
+        </div>
+    </nav>
     
-    <script src="script.js"></script>
+    <script type="module" src="js/navbar.js"></script>
 </body>
 </html>
