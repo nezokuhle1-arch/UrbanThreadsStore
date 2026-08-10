@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shop — Urban Threads Store</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo1.png" alt="Urban Threads Store">
+            </div>
+            <div class="nav-links">
+                <a href="shop.html?category=Hoodies">Hoodies</a>
+                <a href="shop.html?category=T-Shirts">T-shirts</a>
+                <a href="shop.html?category=Sneakers">Sneakers</a>
+                <a href="shop.html?category=Accessories">Accessories</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit">
+                    <span class="material-symbols-rounded">search</span>
+                </button>
+            </div>
+            <div class="nav-icons">
+                <span id="nav-auth-status">
+                    <a href="login.html" aria-label="Account">
+                        <span class="material-symbols-rounded">person</span>
+                    </a>
+                </span>
+                <a href="cart.html" aria-label="Cart">
+                    <span class="material-symbols-rounded">shopping_cart</span>
+                    <span id="nav-cart-count" class="cart-count" style="display: none;">0</span>
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <h1>Shop All</h1>
+
+            <div class="filter-pill">
+                <button type="button" class="filter-pill active" data-category="all">All</button>
+                <button type="button" class="filter-pill" data-category="Hoodies">Hoodies</button>
+                <button type="button" class="filter-pill" data-category="T-shirts">T-shirts</button>
+                <button type="button" class="filter-pill" data-category="Sneakers">Sneakers</button>
+                <button type="button" class="filter-pill" data-category="Accessories">Accessories</button>
+            </div>
+
+            <div id="product-grid" class="product-grid"></div>
+        </main>
+
+        <script type="module" src="js/navbar.js"></script>
+        <script type="module" src="js/products.js"></script>
+    </body>
+</html>
