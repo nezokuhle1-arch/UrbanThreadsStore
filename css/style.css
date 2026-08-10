@@ -1,0 +1,190 @@
+
+/* ============================================
+   URBAN THREADS — Design System Setup
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg-color: #FFFFFF;
+    --ink: #0a0a0a;
+    --muted: #6B6B6B;
+    --line: #E5E5E5;
+    --accent: #E1592C;
+    --font-family: 'Instrument Serif', serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-display: 'Instrument Serif', serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    color: var(--ink);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg-color);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+   nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 24px;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo img {
+    height: 36px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: opacity 150ms ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px 12px;
+    font-size: 13px;
+    outline: none;
+    width: 160px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-icons a {
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: opacity 150ms ease;
+}
+
+.nav-icons a:hover {
+    opacity: 0.6;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+    HERO SECTION
+    ============================================ */
+
+.hero {
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.75)),
+        url('../assets/images/hero-urbnthrds.png');
+    background-size: cover;
+    background-position: center;
+    padding: 96px 24px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.hero-content span {
+display: block;
+font-family: var(--font-body);
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #B8B8B8;
+margin-bottom: 12px;
+}
+
+.hero-content h1 {
+font-family: var(--font-display);
+font-size: clamp(32px, 6vw, 64px);
+line-height: 1.1;
+color: #FFFFFF;
+max-width: 16ch;
+margin: 0 0 28px;
+}
+
+/* ============================================
+    CTA BUTTON
+============================================ */
+.cta-button {
+display: inline-block;
+background: #FFFFFF;
+color: var(--ink);
+text-decoration: none;
+padding: 14px 28px;
+border-radius: 6px;
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+}
+
