@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Urban Threads Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/images/logo1.png" alt="Urban Threads Store">
+        </div>
+        <div class="nav-links">
+            <a href="shop.html?category=Hoodies">Hoodies</a>
+            <a href="shop.html?category=T-shirts">T-shirts</a>
+            <a href="shop.html?category=Sneakers">Sneakers</a>
+            <a href="shop.html?category=Accessories">Accessories</a>
+        </div>
+        <form class="search-bar" method="get" action="shop.html">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit" aria-label="Search">
+                <span class="material-symbols-rounded">search</span>
+            </button>
+        </form>
+        <div class="nav-icons">
+            <span id="nav-auth-status">
+                <a href="login.html" aria-label="Account">
+                    <span class="material-symbols-rounded">person</span>
+                </a>
+            </span>
+            <a href="cart.html" aria-label="Cart">
+                <span class="material-symbols-rounded">shopping_cart</span>
+                <span id="nav-cart-count" class="cart-count" style="display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Auth Wrap -->
+    <main class="auth-wrap">
+
+        <!-- Auth Tabs -->
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Log In</button>
+            <button class="auth-tab" data-tab="signup">Create Account</button>
+        </div>
+
+        <!-- Log In Form -->
+        <form id="login-form" novalidate>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="login-email" name="email" required>
+                <div class="form-error" id="login-email-error">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="login-password" name="password" required>
+                <div class="form-error" id="login-password-error">Please enter a valid password.</div>
+            </div>
+
+            <div class="form-error" id="login-form-error">An error occurred while logging in. Please try again.</div>
+            <button class="auth-submit" type="submit" id="login-submit">Sign In</button>
+        </form>
+       
+        <!-- Sign Up Form -->
+        <form id="signup-form" novalidate style="display:none;">
+            <div class="form-group">
+                <label class="form-label" for="signup-name">Name</label>
+                <input class="form-input" type="text" id="signup-name" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="signup-email">Email</label>
+                <input class="form-input" type="email" id="signup-email" autocomplete="email">
+                <div class="form-error" id="signup-email-error"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="signup-password">Password</label>
+                <input class="form-input" type="password" id="signup-password" autocomplete="new-password">
+                <div class="form-error" id="signup-password-error"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="signup-confirm">Confirm password</label>
+                <input class="form-input" type="password" id="signup-confirm" autocomplete="new-password">
+                <div class="form-error" id="signup-confirm-error"></div>
+            </div>
+            <div class="form-error" id="signup-form-error"></div>
+            <button class="auth-submit" type="submit" id="signup-submit">Create account</button>
+        </form>
+
+        <!-- Google Sign In Button -->
+        <div class="form-divider">or</div>
+
+        <button class="google-btn" id="google-signin-btn" type="button">
+            <span class="material-symbols-rounded">account_circle</span>
+            Continue with Google
+        </button>
+
+    </main>
+
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/auth.js"></script>
+
+    <script>
+        const tabLogin = document.querySelector('[data-tab="login"]');
+        const tabSignup = document.querySelector('[data-tab="signup"]');
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        tabLogin.addEventListener('click', () => {
+            tabLogin.classList.add('active');
+            tabSignup.classList.remove('active');
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        });
+
+        tabSignup.addEventListener('click', () => {
+            tabSignup.classList.add('active');
+            tabLogin.classList.remove('active');
+            signupForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
