@@ -318,3 +318,126 @@ main.shop-page h1 {
 .state-message.error strong {
     color: var(--accent);
 }
+
+/* ============================================
+    AUTH PAGE
+    ============================================ */
+
+/* ============================================
+   AUTH PAGE
+   ============================================ */
+
+   .auth-wrap {
+    max-width: 380px;
+    margin: 64px auto;
+    padding: 0 24px;
+}
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+}
+
+.auth-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.auth-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--bg-color);
+}
+
+.form-error {
+    color: var(--accent);
+    font-size: 12px;
+    margin-top: 6px;
+    min-height: 0;
+}
+
+.auth-submit {
+    width: 100%;
+    background: var(--ink);
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.auth-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-divider::before, .form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+.google-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--bg-color);
+    border: 1px solid var(--line);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.google-btn:hover {
+    background: #F5F5F5;
+}
