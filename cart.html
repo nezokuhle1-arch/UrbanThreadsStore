@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Urban Threads Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/images/logo1.png" alt="Urban Threads Store">
+        </div>
+        <div class="nav-links">
+            <a href="shop.html?category=Hoodies">Hoodies</a>
+            <a href="shop.html?category=T-shirts">T-shirts</a>
+            <a href="shop.html?category=Sneakers">Sneakers</a>
+            <a href="shop.html?category=Accessories">Accessories</a>
+        </div>
+        <form class="search-bar" method="get" action="shop.html">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit" aria-label="Search">
+                <span class="material-symbols-rounded">search</span>
+            </button>
+        </form>
+        <div class="nav-icons">
+            <span id="nav-auth-status">
+                <a href="login.html" aria-label="Account">
+                    <span class="material-symbols-rounded">person</span>
+                </a>
+            </span>
+            <a href="cart.html" aria-label="Cart">
+                <span class="material-symbols-rounded">shopping_cart</span>
+                <span id="nav-cart-count" class="cart-count" style="display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="cart-wrap">
+        <h1>Shopping Cart</h1>
+        <div id="cart-items"></div>
+        <div id="cart-summary" class="cart-summary" style="display:none;">
+            <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">R0.00</span>
+            </div>
+            <div class="cart-summary-row Total">
+                <span>Total</span>
+                <span id="cart-total">R0.00</span>
+            </div>
+            <button class="auth-submit" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+
+        <script type="module" src="js/navbar.js"></script>
+        <script type="module" src="js/cart.js"></script>
+    </main>
+
+</body>
+</html>
