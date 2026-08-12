@@ -7,13 +7,21 @@ const filterPills = document.querySelectorAll('.filter-pill');
 
 let allProducts = [];
 let currentUser = null;
+let currentWishlist = [];
 
 const params = new URLSearchParams(window.location.search);
 let activeCategory = params.get('category') || 'all';
 const searchQuery = (params.get('search') || '').trim().toLowerCase();
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   currentUser = user;
+  if (user) {
+    const snap = await getDoc(doc(db, 'users', user.uid));
+    currentWishlist = snap.exists() ? (snap.data().wishlist || []) : [];
+  } else {
+    currentWishlist = [];
+  }
+  if (allProducts.length) applyFilters();
 });
 
 function currency(n) {
@@ -41,10 +49,15 @@ function renderProducts(list) {
     return;
   }
 
-  grid.innerHTML = list.map((p) => `
+  grid.innerHTML = list.map((p) => {
+    const isWishlisted = currentWishlist.includes(p.id);
+    return `
     <div class="product-card" data-id="${p.id}">
       <div class="product-image">
         ${p.imageURL ? `<img src="${p.imageURL}" alt="${p.name}" loading="lazy">` : ''}
+        <button class="wishlist-toggle${isWishlisted ? ' active' : ''}" data-id="${p.id}" type="button" aria-label="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}">
+          <span class="material-symbols-rounded">favorite</span>
+        </button>
       </div>
       <div class="product-info">
         <span class="product-category">${p.category || ''}</span>
@@ -54,18 +67,25 @@ function renderProducts(list) {
           <button class="add-to-cart" data-id="${p.id}" type="button">+ Add</button>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 function applyFilters() {
-  const filtered = allProducts.filter((p) => {
-    const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
+  let base = allProducts;
+  if (activeCategory === 'wishlist') {
+    base = allProducts.filter((p) => currentWishlist.includes(p.id));
+  } else if (activeCategory !== 'all') {
+    base = allProducts.filter((p) => p.category === activeCategory);
+  }
+
+  const filtered = base.filter((p) => {
     const matchesQuery = !searchQuery ||
       p.name?.toLowerCase().includes(searchQuery) ||
       p.description?.toLowerCase().includes(searchQuery);
-    return matchesCategory && matchesQuery;
+    return matchesQuery;
   });
+
   renderProducts(filtered);
 }
 
@@ -135,6 +155,27 @@ async function addToCart(productId) {
   showToast(`${product.name} added to cart.`);
 }
 
+async function toggleWishlist(productId) {
+  if (!currentUser) {
+    showToast('Sign in to save items to your wishlist.', 'Sign in', 'login.html');
+    return;
+  }
+
+  const userRef = doc(db, 'users', currentUser.uid);
+  const snap = await getDoc(userRef);
+  let wishlist = snap.exists() ? (snap.data().wishlist || []) : [];
+
+  if (wishlist.includes(productId)) {
+    wishlist = wishlist.filter((id) => id !== productId);
+  } else {
+    wishlist.push(productId);
+  }
+
+  await updateDoc(userRef, { wishlist });
+  currentWishlist = wishlist;
+  applyFilters();
+}
+
 filterPills.forEach((pill) => {
   if (pill.dataset.category === activeCategory) {
     filterPills.forEach((p) => p.classList.remove('active'));
@@ -149,8 +190,12 @@ filterPills.forEach((pill) => {
 });
 
 grid?.addEventListener('click', (e) => {
-  if (e.target.matches('.add-to-cart')) {
-    addToCart(e.target.dataset.id);
+  const addBtn = e.target.closest('.add-to-cart');
+  const wishBtn = e.target.closest('.wishlist-toggle');
+  if (addBtn) {
+    addToCart(addBtn.dataset.id);
+  } else if (wishBtn) {
+    toggleWishlist(wishBtn.dataset.id);
   }
 });
 
