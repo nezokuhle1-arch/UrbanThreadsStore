@@ -53,6 +53,11 @@ body {
     width: auto;
 }
 
+.logo a {
+    display: block;
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     gap: 20px;
