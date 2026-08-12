@@ -16,10 +16,12 @@ A trendy streetwear e-commerce store for young adults, built as a vanilla HTML/C
 
 ## Tech stack
 
-- HTML, CSS, JavaScript — no framework, no bundler, no build step
-- Firebase Firestore — product catalog, per-user cart/wishlist data
-- Firebase Authentication — email/password + Google Sign-In
-- Deployed on Netlify, connected directly to this GitHub repo
+- HTML, CSS, JavaScript — no framework, no bundler, no build step.
+- Firebase Firestore — product catalog, per-user cart/wishlist data.
+- Firebase Authentication — email/password + Google Sign-In.
+- 21st Dev - Used for log in design inspiration.
+- Dribble.com - Used for website design ideas.
+- Deployed on Netlify, connected directly to this GitHub repo.
 
 ## Project structure
 
@@ -29,16 +31,16 @@ shop.html → Product listing, filters, search results
 login.html → Sign in / create account
 cart.html → Cart summary and checkout
 css/
-style.css
+  style.css
 js/
-firebase-config.js → Firebase init, exports db/auth/googleProvider
-navbar.js → Shared nav: auth status, cart count badge
-products.js → Product fetch/render, filtering, search, wishlist toggle, add-to-cart
-auth.js → Signup, login, Google sign-in, validation
-cart.js → Cart mutations, totals, mock checkout
-featured.js → "New drop" section on the homepage
+  firebase-config.js → Firebase init, exports db/auth/googleProvider
+  navbar.js → Shared nav: auth status, cart count badge
+  products.js → Product fetch/render, filtering, search, wishlist toggle, add-to-cart
+  auth.js → Signup, login, Google sign-in, validation
+  cart.js → Cart mutations, totals, mock checkout
+  featured.js → "New drop" section on the homepage
 assets/
-images/
+  images/
 
 
 ## Firestore schema
@@ -63,8 +65,6 @@ This project uses ES modules (`import`/`export`), which browsers block on the `f
 
 - **VS Code:** install the "Live Server" extension, right-click `index.html` → "Open with Live Server"
 - **Terminal:** `npx serve .` from the project root, then open the printed `localhost` URL
-
-You'll also need your own Firebase project (Firestore + Authentication enabled, with Email/Password and Google providers turned on) and to drop your config into `js/firebase-config.js`.
 
 ## Deliverables
 
