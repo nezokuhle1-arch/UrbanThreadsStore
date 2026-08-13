@@ -70,7 +70,7 @@ This project uses ES modules (`import`/`export`), which browsers block on the `f
 
 - **Git repo:** https://github.com/nezokuhle1-arch/UrbanThreadsStore.git
 - **Live site:** https://urbnthrds.netlify.app/
-- **Loom walkthrough:** _link pending_
+- **Loom walkthrough:** Video pending - kind of struggling with my loom, i will find an alternative way and submit after by adding the link here.
 
 ## Notes
 
